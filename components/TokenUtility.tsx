@@ -2,6 +2,10 @@
 import React from 'react';
 import { EarnIcon, StakeIcon, SpendIcon } from './icons';
 
+interface TokenUtilityProps {
+  onShowLitepaper: () => void;
+}
+
 const utilities = [
   {
     icon: <EarnIcon />,
@@ -30,7 +34,7 @@ const UtilityCard: React.FC<{ icon: React.ReactNode; title: string; description:
   </div>
 );
 
-const TokenUtility: React.FC = () => {
+const TokenUtility: React.FC<TokenUtilityProps> = ({ onShowLitepaper }) => {
   return (
     <section className="py-24 px-4">
       <div className="container mx-auto text-center">
@@ -42,7 +46,10 @@ const TokenUtility: React.FC = () => {
           ))}
         </div>
         <div className="mt-16">
-          <button className="px-8 py-3 font-semibold rounded-full bg-transparent border border-white/30 text-gray-200 transition-all duration-300 hover:scale-105 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_20px_theme(colors.cyan.500/0.5)] active:scale-95 active:bg-cyan-900/20">
+          <button 
+            onClick={onShowLitepaper}
+            className="px-8 py-3 font-semibold rounded-full bg-transparent border border-white/30 text-gray-200 transition-all duration-300 hover:scale-105 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_20px_theme(colors.cyan.500/0.5)] active:scale-95 active:bg-cyan-900/20"
+          >
             Read Litepaper
           </button>
         </div>

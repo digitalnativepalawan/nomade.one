@@ -5,7 +5,6 @@ const Hero: React.FC = () => {
   return (
     <section className="text-center py-32 md:py-48 px-4">
       <div className="container mx-auto">
-        <h2 className="text-sm font-bold tracking-[0.3em] text-gray-400 mb-4">NOMADS.ONE</h2>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
           Life Without <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-transparent bg-clip-text">Borders</span>
         </h1>

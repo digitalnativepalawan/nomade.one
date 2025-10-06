@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import PowerOfOne from './components/PowerOfOne';
@@ -10,8 +10,13 @@ import TokenUtility from './components/TokenUtility';
 import Testimonials from './components/Testimonials';
 import EarlyAccess from './components/EarlyAccess';
 import Footer from './components/Footer';
+import ComingSoonPopup from './components/ComingSoonPopup';
+import LitepaperPopup from './components/LitepaperPopup';
 
 const App: React.FC = () => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [isLitepaperVisible, setLitepaperVisible] = useState(false);
+
   useEffect(() => {
     const handleSmoothScroll = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -46,19 +51,22 @@ const App: React.FC = () => {
       </div>
       
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Header />
+        <Header onNavClick={() => setPopupVisible(true)} />
         <main className="flex-grow">
           <Hero />
           <PowerOfOne />
           <NomadLife />
           <W3CardSection />
           <Roadmap />
-          <TokenUtility />
+          <TokenUtility onShowLitepaper={() => setLitepaperVisible(true)} />
           <Testimonials />
           <EarlyAccess />
         </main>
         <Footer />
       </div>
+
+      <ComingSoonPopup isOpen={isPopupVisible} onClose={() => setPopupVisible(false)} />
+      <LitepaperPopup isOpen={isLitepaperVisible} onClose={() => setLitepaperVisible(false)} />
     </div>
   );
 };
